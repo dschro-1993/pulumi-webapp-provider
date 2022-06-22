@@ -60,9 +60,10 @@ const _createBucket = (prefix: string, options: pulumi.CustomResourceOptions): a
   );
 };
 
-export const createBucket = (prefix: string, iamArn: pulumi.Output<string>, assets: Asset[], options: pulumi.CustomResourceOptions): aws.s3.Bucket => {
+export const createBucket = (prefix: string, oai: aws.cloudfront.OriginAccessIdentity, assets: Asset[], options: pulumi.CustomResourceOptions): aws.s3.Bucket => {
   const bucket = _createBucket(prefix, options);
   const childOptions: pulumi.CustomResourceOptions = {...options, parent: bucket};
+  const iamArn = oai.iamArn;
   _attachPolicy(prefix, bucket, iamArn, childOptions);
   _createAssets(prefix, bucket, assets, childOptions);
   return bucket;

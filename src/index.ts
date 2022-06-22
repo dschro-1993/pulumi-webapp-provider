@@ -36,8 +36,8 @@ export class StaticWebsite extends pulumi.ComponentResource  {
     // console.debug(JSON.stringify(assets));
 
     const oai = createOAI(name, defaultResourceOptions);
-    const bucket = createBucket(name, oai.iamArn, assets, defaultResourceOptions);
-    const domain = createDomain(name, oai.iamArn, bucket, defaultResourceOptions);
+    const bucket = createBucket(name, oai, assets, defaultResourceOptions);
+    const domain = createDomain(name, oai, bucket, defaultResourceOptions);
 
     this.bucket = bucket;
     this.domain = domain;

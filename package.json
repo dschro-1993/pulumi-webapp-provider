@@ -2,6 +2,8 @@
   "name": "@dschro-1993/pulumi-provider",
   "version": "1.0.0",
   "files": ["dist/"],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "devDependencies": {
     "@types/node": "^17.0.21",
     "typescript": "^4.7.3",

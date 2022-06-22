@@ -14,7 +14,7 @@ const _createResponseHeadersPolicy = (prefix: string, options: pulumi.CustomReso
   );
 };
 
-export const createDomain = (prefix: string, iamArn: pulumi.Output<string>, bucket: aws.s3.Bucket, options: pulumi.CustomResourceOptions): aws.cloudfront.Distribution => {
+export const createDomain = (prefix: string, oai: aws.cloudfront.OriginAccessIdentity, bucket: aws.s3.Bucket, options: pulumi.CustomResourceOptions): aws.cloudfront.Distribution => {
   const policy = _createResponseHeadersPolicy(prefix, options);
   return new aws.cloudfront.Distribution(
     `${prefix}-distribution`,
@@ -24,7 +24,7 @@ export const createDomain = (prefix: string, iamArn: pulumi.Output<string>, buck
           domainName: bucket.bucketRegionalDomainName,
           originId:   bucket.bucket,
           s3OriginConfig: {
-            originAccessIdentity: iamArn,
+            originAccessIdentity: oai.cloudfrontAccessIdentityPath,
           },
         },
       ],
