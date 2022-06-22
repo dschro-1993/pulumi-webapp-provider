@@ -1,0 +1,19 @@
+{
+  "name": "@dschro-1993/pulumi-provider",
+  "version": "1.0.0",
+  "files": ["dist/"],
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "typescript": "^4.7.3",
+    "gts": "^3.1.0"
+  },
+  "dependencies": {
+    "@pulumi/aws": "^5.7.2",
+    "@pulumi/pulumi": "^3.34.1",
+    "mime-types": "^2.1.35",
+    "fast-glob": "^3.2.11"
+  },
+  "scripts": {
+    "prepare": "tsc"
+  }
+}

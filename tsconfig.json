@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "rootDirs": ["src/"],
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "outDir": "dist/",
+    "pretty": true,
+    "strict": true
+  }
+}

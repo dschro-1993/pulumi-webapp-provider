@@ -1,0 +1,10 @@
+.DS_Store
+
+# deps
+**/node_modules
+
+# jest
+**/coverage
+
+# live
+**/dist
