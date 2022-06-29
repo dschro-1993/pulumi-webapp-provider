@@ -1,11 +1,11 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as aws from '@pulumi/aws';
 
-import { Asset } from './components/types';
+import {Asset} from './components/types';
 
-import { createOAI } from './components/oai';
-import { createBucket } from './components/s3';
-import { createDomain } from './components/cf';
+import {createOAI} from './components/oai';
+import {createBucket} from './components/s3';
+import {createDomain} from './components/cf';
 
 import {sync} from 'fast-glob';
 import {join} from 'path';
@@ -22,8 +22,6 @@ export class StaticWebsite extends pulumi.ComponentResource  {
   bucket: aws.s3.Bucket;
   domain: aws.cloudfront.Distribution;
 
-  // Question 1: Allow to customize bucket and domain?
-  // Question 2: Allow to pass tags?
   constructor(name: string, args: ContentArgs, options?: pulumi.ResourceOptions) {
     super('StaticWebsite', name, {}, options);
 
@@ -35,7 +33,7 @@ export class StaticWebsite extends pulumi.ComponentResource  {
     const assets: Asset[] = build.map((asset) => ({name: asset.replace(`${rootPath}/`, ''), path: asset}));
     // console.debug(JSON.stringify(assets));
 
-    const oai = createOAI(name, defaultResourceOptions);
+    const oai    = createOAI(name, defaultResourceOptions);
     const bucket = createBucket(name, oai, assets, defaultResourceOptions);
     const domain = createDomain(name, oai, bucket, defaultResourceOptions);
 

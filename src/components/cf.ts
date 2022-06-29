@@ -43,8 +43,6 @@ export const createDomain = (prefix: string, oai: aws.cloudfront.OriginAccessIde
         allowedMethods: ['GET', 'HEAD', 'OPTIONS'],
         cachedMethods:  ['GET', 'HEAD', 'OPTIONS'],
         targetOriginId: bucket.bucket,
-        // https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html
-        // originRequestPolicyId: '216adef6-5c7f-47e4-b989-5492eafa07d3',
         // https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html
         cachePolicyId: '658327ea-f89d-4fab-a63d-7e88639e58f6',
         responseHeadersPolicyId: policy.id,

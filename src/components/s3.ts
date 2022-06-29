@@ -1,7 +1,7 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as aws from '@pulumi/aws';
 
-import { Asset } from './types';
+import {Asset} from './types';
 
 const _publicReadPolicy = (bucketName: string, iamArn: string): string => {
   return JSON.stringify({
